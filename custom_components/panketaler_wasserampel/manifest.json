@@ -4,7 +4,8 @@
   "documentation": "https://github.com/morbeth/panketaler-wasserampel",
   "dependencies": [],
   "codeowners": ["@morbeth"],
-  "requirements": ["beautifulsoup4>=4.9.0"],
+  "requirements": ["beautifulsoup4"],
   "iot_class": "cloud_polling",
-  "version": "1.0.0"
+  "version": "0.1.0",
+  "icon": "icon.png"
 }
