@@ -1,0 +1,48 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Panketaler Water Traffic Light",
+        "description": "Set up the Panketaler Water Traffic Light integration",
+        "data": {
+          "name": "Name",
+          "url": "URL"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_url": "Invalid URL",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "Integration already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Panketaler Water Traffic Light Options",
+        "data": {
+          "url": "URL"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "green": "Green",
+          "yellow": "Yellow",
+          "red": "Red",
+          "unknown": "Unknown"
+        }
+      },
+      "numeric_status": {
+        "name": "Numeric Status"
+      }
+    }
+  }
+}

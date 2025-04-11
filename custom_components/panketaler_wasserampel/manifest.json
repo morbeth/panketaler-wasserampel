@@ -1,0 +1,10 @@
+{
+  "domain": "panketaler_wasserampel",
+  "name": "Panketaler Wasserampel",
+  "documentation": "https://github.com/morbeth/panketaler-wasserampel",
+  "dependencies": [],
+  "codeowners": ["@morbeth"],
+  "requirements": ["beautifulsoup4>=4.9.0"],
+  "iot_class": "cloud_polling",
+  "version": "1.0.0"
+}

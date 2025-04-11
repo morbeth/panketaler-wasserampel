@@ -1,0 +1,48 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Panketaler Wasserampel",
+        "description": "Einrichtung der Panketaler Wasserampel Integration",
+        "data": {
+          "name": "Name",
+          "url": "URL"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "invalid_url": "Ungültige URL",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "abort": {
+      "already_configured": "Integration bereits konfiguriert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Panketaler Wasserampel Optionen",
+        "data": {
+          "url": "URL"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "green": "Grün",
+          "yellow": "Gelb",
+          "red": "Rot",
+          "unknown": "Unbekannt"
+        }
+      },
+      "numeric_status": {
+        "name": "Numerischer Status"
+      }
+    }
+  }
+}
