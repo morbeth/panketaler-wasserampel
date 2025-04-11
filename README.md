@@ -1,5 +1,7 @@
 # Panketaler Wasserampel für Home Assistant
 
+<img src="icon.png" alt="Panketaler Wasserampel Logo" width="128"/>
+
 Diese Integration für Home Assistant zeigt den aktuellen Status der Wasserampel der Gemeinde Panketal an.
 
 ## Installation
