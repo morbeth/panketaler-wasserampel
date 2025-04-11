@@ -1,73 +1,50 @@
-"""Sensor platform for Panketaler Wasserampel integration."""
-import logging
-import asyncio
-import aiohttp
-import async_timeout
-import voluptuous as vol
-from datetime import timedelta
-from homeassistant.helpers.entity import Entity
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
-from homeassistant.components.sensor import (
-    SensorEntity,
-    SensorDeviceClass,
-    SensorStateClass,
-)
+"""Sensor platform for Panketaler Wasserampel."""
+from homeassistant.components.sensor import SensorEntity
 from homeassistant.const import CONF_NAME
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-    DataUpdateCoordinator,
-    UpdateFailed,
-)
 
 from .const import DOMAIN
 
-_LOGGER = logging.getLogger(__name__)
-
-# URL der Panketaler Wasserampel
-URL = "https://www.panketalerwasserampel.de/"
-
-# Scanintervall in Sekunden
-SCAN_INTERVAL = timedelta(minutes=30)
-
-# Mögliche Farben der Wasserampel
-COLORS = {
-    "GRÜN": "green",
-    "GELB": "yellow",
-    "ROT": "red",
-}
-
-# Zuordnung der Farben zu numerischen Werten
-COLOR_VALUES = {
-    "green": 1,
-    "yellow": 2,
-    "red": 3,
-}
-
-async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
-    """Set up the sensor platform from YAML configuration."""
-    name = config.get(CONF_NAME, "Panketaler Wasserampel")
-    
-    coordinator = PanketalerWasserampelCoordinator(hass)
-    await coordinator.async_config_entry_first_refresh()
-    
-    async_add_entities([PanketalerWasserampelSensor(coordinator, name)], True)
-
-
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback):
+async def async_setup_entry(hass, entry, async_add_entities):
     """Set up Panketaler Wasserampel sensor based on a config entry."""
-    # Verwende den konfigurierten Namen oder Standard
-    name = entry.data.get(CONF_NAME, "Panketaler Wasserampel")
+    name = entry.data.get(CONF_NAME)
     
-    coordinator = PanketalerWasserampelCoordinator(hass)
-    await coordinator.async_config_entry_first_refresh()
-    
-    async_add_entities([PanketalerWasserampelSensor(coordinator, name)], True)
+    async_add_entities([PanketalerWasserampelSensor(name, entry.data)], True)
 
 
-class PanketalerWasserampelCoordinator(DataUpdateCoordinator):
-    """Class to manage fetching data from the API."""
+class PanketalerWasserampelSensor(SensorEntity):
+    """Implementation of a Panketaler Wasserampel sensor."""
 
-    def __init__(self, h
+    def __init__(self, name, config):
+        """Initialize the sensor."""
+        self._name = name
+        self._config = config
+        self._state = None
+        self._attributes = {}
+        # Füge eine eindeutige ID hinzu, damit Home Assistant die Entität korrekt verfolgen kann
+        self._attr_unique_id = f"panketaler_wasserampel_{name}"
+
+    @property
+    def name(self):
+        """Return the name of the sensor."""
+        return self._name
+
+    @property
+    def state(self):
+        """Return the state of the sensor."""
+        return self._state
+
+    @property
+    def extra_state_attributes(self):
+        """Return the state attributes."""
+        return self._attributes
+
+    async def async_update(self):
+        """Fetch new state data for the sensor."""
+        # Hier würde man die Wasserdaten abrufen
+        # Zum Testen verwenden wir einen Dummy-Wert
+        self._state = "Grün"  # oder "Gelb", "Rot" abhängig vom Wasserstand
+        self._attributes = {
+            "last_update": "2023-01-01 12:00:00",
+            "water_level": 50,  # Beispielwert
+            "source": "Panketaler Wasserampel"
+        }
