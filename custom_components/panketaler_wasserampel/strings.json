@@ -1,0 +1,16 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Panketaler Wasserampel",
+        "description": "Richte die Panketaler Wasserampel Integration ein",
+        "data": {
+          "name": "Name"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Diese Integration ist bereits konfiguriert"
+    }
+  }
+}
