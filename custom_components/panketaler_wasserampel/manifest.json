@@ -6,6 +6,6 @@
   "codeowners": ["@morbeth"],
   "requirements": ["beautifulsoup4"],
   "iot_class": "cloud_polling",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "icon": "icon.png"
 }
