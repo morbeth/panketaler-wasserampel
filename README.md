@@ -4,6 +4,14 @@
 
 Diese Integration für Home Assistant zeigt den aktuellen Status der Wasserampel der Gemeinde Panketal an.
 
+## Unterstütze das Projekt
+
+Wenn dir diese Integration gefällt und du meine Arbeit unterstützen möchtest, kannst du mir gerne einen Kaffee spendieren:
+
+<a href="https://buymeacoffee.com/morbeth" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50px">
+</a>
+
 ## Installation
 
 ### Option 1: HACS (Home Assistant Community Store)
